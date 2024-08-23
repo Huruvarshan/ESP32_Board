@@ -660,3 +660,10 @@ C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/build/esp-idf/ma
 C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/build/esp-idf/main/CMakeFiles/install.dir
 C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/build/esp-idf/main/CMakeFiles/install/local.dir
 C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/build/esp-idf/main/CMakeFiles/install/strip.dir
+C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/build/esp-idf/ESP-Driver/CMakeFiles/__idf_ESP-Driver.dir
+C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/build/esp-idf/ESP-Driver/CMakeFiles/edit_cache.dir
+C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/build/esp-idf/ESP-Driver/CMakeFiles/rebuild_cache.dir
+C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/build/esp-idf/ESP-Driver/CMakeFiles/list_install_components.dir
+C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/build/esp-idf/ESP-Driver/CMakeFiles/install.dir
+C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/build/esp-idf/ESP-Driver/CMakeFiles/install/local.dir
+C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/build/esp-idf/ESP-Driver/CMakeFiles/install/strip.dir

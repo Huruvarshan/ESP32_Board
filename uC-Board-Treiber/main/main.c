@@ -1,11 +1,5 @@
-#include <stdio.h>
-#include <freertos/FreeRTOS.h>
-#include <freertos/task.h>
-#include <esp_err.h>
-#include <esp_log.h> 
-#include <driver/gpio.h> 
+#include <ESP-Driver.h>
 #include <led_strip.h>
-//#include <mcp23x17.h>
 
 #define OUTPUT_WS2812 38 
 

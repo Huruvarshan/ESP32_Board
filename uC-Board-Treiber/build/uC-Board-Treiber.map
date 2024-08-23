@@ -186,6 +186,8 @@ esp-idf/nvs_sec_provider/libnvs_sec_provider.a(nvs_sec_provider.c.obj)
                               (nvs_sec_provider_include_impl)
 esp-idf/main/libmain.a(main.c.obj)
                               (app_main)
+esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
+                              C:/esp/tools/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/lib/esp32s3/no-rtti/crt0.o (main)
 esp-idf/espressif__led_strip/libespressif__led_strip.a(led_strip_api.c.obj)
                               esp-idf/main/libmain.a(main.c.obj) (led_strip_set_pixel)
 esp-idf/espressif__led_strip/libespressif__led_strip.a(led_strip_rmt_dev.c.obj)
@@ -3030,6 +3032,19 @@ Discarded input sections
  .text          0x00000000        0x0 esp-idf/main/libmain.a(main.c.obj)
  .data          0x00000000        0x0 esp-idf/main/libmain.a(main.c.obj)
  .bss           0x00000000        0x0 esp-idf/main/libmain.a(main.c.obj)
+ .text          0x00000000        0x0 esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
+ .data          0x00000000        0x0 esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
+ .bss           0x00000000        0x0 esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
+ .text.main     0x00000000        0x7 esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
+ .debug_frame   0x00000000       0x28 esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
+ .debug_info    0x00000000       0x90 esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
+ .debug_abbrev  0x00000000       0x44 esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
+ .debug_aranges
+                0x00000000       0x20 esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
+ .debug_ranges  0x00000000       0x10 esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
+ .debug_line    0x00000000       0x9c esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
+ .debug_str     0x00000000      0x27d esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
+ .comment       0x00000000       0x30 esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
  .literal.led_strip_set_pixel_hsv
                 0x00000000       0x20 esp-idf/espressif__led_strip/libespressif__led_strip.a(led_strip_api.c.obj)
  .literal.led_strip_set_pixel_rgbw
@@ -10210,6 +10225,7 @@ LOAD esp-idf/usb/libusb.a
 LOAD esp-idf/wifi_provisioning/libwifi_provisioning.a
 LOAD esp-idf/espressif__led_strip/libespressif__led_strip.a
 LOAD esp-idf/main/libmain.a
+LOAD esp-idf/ESP-Driver/libESP-Driver.a
 LOAD esp-idf/app_trace/libapp_trace.a
 LOAD esp-idf/app_trace/libapp_trace.a
 LOAD esp-idf/cmock/libcmock.a
@@ -24929,6 +24945,8 @@ LOAD C:/esp/tools/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/..
  .xt.prop       0x00010dd0       0x24 esp-idf/nvs_sec_provider/libnvs_sec_provider.a(nvs_sec_provider.c.obj)
                                 0x348 (size before relaxing)
  .xt.prop       0x00010df4       0x60 esp-idf/main/libmain.a(main.c.obj)
+ .xt.prop       0x00010e54        0x0 esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
+                                 0x24 (size before relaxing)
  .xt.prop       0x00010e54       0xa8 esp-idf/espressif__led_strip/libespressif__led_strip.a(led_strip_api.c.obj)
                                 0x2a0 (size before relaxing)
  .xt.prop       0x00010efc      0x318 esp-idf/espressif__led_strip/libespressif__led_strip.a(led_strip_rmt_dev.c.obj)
@@ -26292,6 +26310,7 @@ OUTPUT(uC-Board-Treiber.elf elf32-xtensa-le)
  .xtensa.info   0x00000038        0x0 esp-idf/vfs/libvfs.a(vfs_uart.c.obj)
  .xtensa.info   0x00000038        0x0 esp-idf/nvs_sec_provider/libnvs_sec_provider.a(nvs_sec_provider.c.obj)
  .xtensa.info   0x00000038        0x0 esp-idf/main/libmain.a(main.c.obj)
+ .xtensa.info   0x00000038        0x0 esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
  .xtensa.info   0x00000038        0x0 esp-idf/espressif__led_strip/libespressif__led_strip.a(led_strip_api.c.obj)
  .xtensa.info   0x00000038        0x0 esp-idf/espressif__led_strip/libespressif__led_strip.a(led_strip_rmt_dev.c.obj)
  .xtensa.info   0x00000038        0x0 esp-idf/espressif__led_strip/libespressif__led_strip.a(led_strip_rmt_encoder.c.obj)
@@ -32361,7 +32380,8 @@ lldesc_setup_link_constrained                     esp-idf/soc/libsoc.a(lldesc.c.
 localeconv                                        C:/esp/tools/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/lib/esp32s3/no-rtti\libc.a(libc_a-localeconv.o)
 localtime_r                                       C:/esp/tools/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/lib/esp32s3/no-rtti\libc.a(libc_a-lcltime_r.o)
                                                   esp-idf/log/liblog.a(log_freertos.c.obj)
-main                                              C:/esp/tools/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/lib/esp32s3/no-rtti/crt0.o
+main                                              esp-idf/ESP-Driver/libESP-Driver.a(ESP-Driver.c.obj)
+                                                  C:/esp/tools/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/lib/esp32s3/no-rtti/crt0.o
 mallinfo                                          esp-idf/newlib/libnewlib.a(heap.c.obj)
 malloc                                            esp-idf/newlib/libnewlib.a(heap.c.obj)
                                                   C:/esp/tools/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/lib/esp32s3/no-rtti\libc.a(libc_a-mprec.o)

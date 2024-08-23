@@ -427,3 +427,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/build/esp-idf/main/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/build/esp-idf/ESP-Driver/cmake_install.cmake")
+endif()
+
