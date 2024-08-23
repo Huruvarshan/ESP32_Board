@@ -77,14 +77,13 @@ void app_main(void)
             printf("Button pressed\n");
             led_strip_set_pixel(led_strip, 0, 1, 25, 1); 
             led_strip_set_pixel(led_strip, 1, 1, 25, 1); 
-            led_strip_refresh(led_strip);
             ledWriteAll(0xffff); 
         } else {
             led_strip_set_pixel(led_strip, 0, 25, 1, 1); 
             led_strip_set_pixel(led_strip, 1, 25, 1, 1); 
             led_strip_refresh(led_strip);
-            ledWriteAll(0x0000);
         }
+        
         vTaskDelay(pdMS_TO_TICKS(100));
     }
 }

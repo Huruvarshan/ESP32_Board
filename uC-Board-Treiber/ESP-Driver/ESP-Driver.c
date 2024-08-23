@@ -50,14 +50,14 @@
 #define IODIRB_MCP23017 0x01
 #define OLATA_MCP23017 0x14
 #define OLATB_MCP23017 0x15
-
-
-
+#define GPIOA_MCP23017 0x12
+#define GPIOB_MCP23017 0x13
 
 void initI2C (void); 
 void mcp23017WriteRegister(uint8_t address, uint8_t register, uint8_t data);
 void mcp23017InitIC2(void);
 void ledWriteAll(uint16_t bitMask); 
+uint8_t mcp23017ReadRegister(uint8_t address, uint8_t reg); 
 
 void initBoard(uint8_t startAnimation){
     gpio_config_t io_conf = {}; // GPIO configuration
@@ -107,4 +107,25 @@ void mcp23017InitIC2(void){
 void ledWriteAll(uint16_t bitMask){
     mcp23017WriteRegister(ADDR_IC2, OLATA_MCP23017, bitMask & 0xff);
     mcp23017WriteRegister(ADDR_IC2, OLATB_MCP23017, bitMask >> 8);
+} 
+
+uint8_t mcp23017ReadRegister(uint8_t address, uint8_t reg){
+    uint8_t data = 0; // Initialize data variable 
+
+    i2c_cmd_handle_t cmd = i2c_cmd_link_create(); // Create a new I2C command link 
+    i2c_master_start(cmd); // Start the I2C command 
+    i2c_master_write_byte(cmd, (address << 1) | I2C_MASTER_WRITE, true); // Read the I2C address 
+    i2c_master_write_byte(cmd, reg, true); // write the register address 
+    i2c_master_start(cmd); // Start the I2C command 
+    i2c_master_write_byte(cmd, (address << 1) | I2C_MASTER_READ, true); // Read the I2C address 
+    i2c_master_read_byte(cmd, &data, I2C_MASTER_NACK); // Read the data
+    i2c_master_stop(cmd); // Stop the I2C command
+    i2c_master_cmd_begin(I2C_NUM_0, cmd, pdMS_TO_TICKS(1000)); // Execute the I2C command 
+    i2c_cmd_link_delete(cmd); // Delete the I2C command link 
+
+    return data; // Return the data
 }
+
+/*uint8_t swtichReadAll(){
+    Gwlll
+}*/
