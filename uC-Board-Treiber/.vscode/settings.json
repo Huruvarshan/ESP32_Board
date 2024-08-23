@@ -15,7 +15,8 @@
     "idf.pythonBinPathWin": "c:\\esp\\tools\\python_env\\idf5.2_py3.11_env\\Scripts\\python.exe",
     "idf.toolsPathWin": "c:\\esp\\tools",
     "files.associations": {
-        "freertos.h": "c"
+        "freertos.h": "c",
+        "esp32_board_treiber.h": "c"
     },
     "idf.flashType": "JTAG"
 }
