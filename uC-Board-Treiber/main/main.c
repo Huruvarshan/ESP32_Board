@@ -75,14 +75,16 @@ void app_main(void)
         if (gpio_get_level(INPUT_BTN0) | gpio_get_level(INPUT_BTN1) | gpio_get_level(INPUT_BTN2) | gpio_get_level(INPUT_BTN3))
         {
             printf("Button pressed\n");
-            led_strip_set_pixel(led_strip, 0, 0, 50, 0); 
-            led_strip_set_pixel(led_strip, 1, 0, 50, 0); 
+            led_strip_set_pixel(led_strip, 0, 1, 25, 1); 
+            led_strip_set_pixel(led_strip, 1, 1, 25, 1); 
             led_strip_refresh(led_strip);
+            ledWriteAll(0xffff); 
         } else {
-            led_strip_set_pixel(led_strip, 0, 50, 0, 0); 
-            led_strip_set_pixel(led_strip, 1, 50, 0, 0); 
+            led_strip_set_pixel(led_strip, 0, 25, 1, 1); 
+            led_strip_set_pixel(led_strip, 1, 25, 1, 1); 
             led_strip_refresh(led_strip);
+            ledWriteAll(0x0000);
         }
-        vTaskDelay(100 / portTICK_PERIOD_MS);
+        vTaskDelay(pdMS_TO_TICKS(100));
     }
 }

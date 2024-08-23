@@ -16,7 +16,8 @@
     "idf.toolsPathWin": "c:\\esp\\tools",
     "files.associations": {
         "freertos.h": "c",
-        "gpio.h": "c"
+        "gpio.h": "c",
+        "cstdint": "c"
     },
     "idf.flashType": "JTAG"
 }
