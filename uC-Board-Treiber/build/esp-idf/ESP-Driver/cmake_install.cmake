@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/components/ESP-Driver
+# Install script for directory: C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/ESP-Driver
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

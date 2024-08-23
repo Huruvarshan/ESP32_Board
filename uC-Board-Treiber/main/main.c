@@ -1,5 +1,34 @@
+/*********************************************************************************\
+*
+* MMMMMMMMMMMM   SSSSSSSSSSSS   WW   WW   WW   MECHATRONIK
+* MM   MM   MM   SS             WW   WW   WW   SCHULE
+* MM   MM   MM   SSSSSSSSSSSS   WW   WW   WW   WINTERTHUR
+* MM   MM   MM             SS   WW   WW   WW   
+* MM   MM   MM   SSSSSSSSSSSS   WWWWWWWWWWWW   www.msw.ch
+*
+*
+* Dateiname: main.c
+*
+* Projekt  : ESP32 Board Treiber 
+* Hardware : ESP32-S3
+*
+* Copyright: MSW, E4
+*
+* Beschreibung:
+* =============
+* Treiber für das ESP32 Board
+*
+* Portbelegung:
+* =============
+* Siehe Hardwarestruktur
+*
+* Verlauf:
+* ========
+* Datum:      Autor:         Version   Grund der Änderung:
+* 23.08.2024  S. Huruvarshan V1.0      Neuerstellung
+*
+\*********************************************************************************/
 #include <ESP-Driver.h>
-#include <led_strip.h>
 
 #define OUTPUT_WS2812 38 
 
@@ -18,13 +47,13 @@
 void app_main(void)
 { 
     //--------------------------------- GPIO Configuration ---------------------------------
-    gpio_config_t io_conf = {};
+    /*gpio_config_t io_conf = {};
     io_conf.intr_type = GPIO_INTR_DISABLE;
     io_conf.mode = GPIO_MODE_INPUT;
     io_conf.pin_bit_mask = GPIO_INPUT_SEL;
     io_conf.pull_down_en = 0;
     io_conf.pull_up_en = 0;
-    gpio_config(&io_conf); 
+    gpio_config(&io_conf); */
 
 
     //--------------------------------- LED Strip Configuration ---------------------------------
@@ -50,10 +79,7 @@ void app_main(void)
     };
     ESP_ERROR_CHECK(led_strip_new_rmt_device(&strip_config, &rmt_config, &led_strip)); 
 
-    //--------------------------------- IO-Extender Configuration ---------------------------------
-    //static mcp23x17_t dev = 0; 
-
-    
+    initBoard(0);
     
     while (1)
     {
