@@ -38,25 +38,11 @@
 #define INPUT_BTN2 36 
 #define INPUT_BTN3 37
 
-#define GPIO_INPUT_SEL ((1ULL << INPUT_BTN0) | (1ULL << INPUT_BTN1) | (1ULL << INPUT_BTN2) | (1ULL << INPUT_BTN3)); 
+//#define GPIO_INPUT_SEL ((1ULL << INPUT_BTN0) | (1ULL << INPUT_BTN1) | (1ULL << INPUT_BTN2) | (1ULL << INPUT_BTN3)); 
 
-#define ADDR_IC2 0x20 
-#define ADDR_IC3 0x21 
-#define SCL 46 
-#define SDA 47
 
 void app_main(void)
-{ 
-    //--------------------------------- GPIO Configuration ---------------------------------
-    /*gpio_config_t io_conf = {};
-    io_conf.intr_type = GPIO_INTR_DISABLE;
-    io_conf.mode = GPIO_MODE_INPUT;
-    io_conf.pin_bit_mask = GPIO_INPUT_SEL;
-    io_conf.pull_down_en = 0;
-    io_conf.pull_up_en = 0;
-    gpio_config(&io_conf); */
-
-
+{
     //--------------------------------- LED Strip Configuration ---------------------------------
     led_strip_handle_t led_strip;
 
@@ -79,7 +65,9 @@ void app_main(void)
     #endif
     };
     ESP_ERROR_CHECK(led_strip_new_rmt_device(&strip_config, &rmt_config, &led_strip)); 
+    
 
+    //--------------------------------- initialize board ---------------------------------
     initBoard(0);
     
     while (1)

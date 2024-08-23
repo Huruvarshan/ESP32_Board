@@ -37,6 +37,14 @@
 
 #define GPIO_INPUT_SEL ((1ULL << INPUT_BTN0) | (1ULL << INPUT_BTN1) | (1ULL << INPUT_BTN2) | (1ULL << INPUT_BTN3)); 
 
+#define ADDR_IC2 0x20 
+#define ADDR_IC3 0x21 
+#define SCL 46 
+#define SDA 47
+
+void initI2C (void); 
+void initMCP23017(uint8_t address);
+
 void initBoard(uint8_t startAnimation){
     //--------------------------------- GPIO Configuration ---------------------------------
     gpio_config_t io_conf = {};
@@ -45,5 +53,36 @@ void initBoard(uint8_t startAnimation){
     io_conf.pin_bit_mask = GPIO_INPUT_SEL;
     io_conf.pull_down_en = 0;
     io_conf.pull_up_en = 0;
-    gpio_config(&io_conf); 
+    gpio_config(&io_conf);  
+
+    //--------------------------------- I2C Configuration ---------------------------------
+    initI2C (); 
+    initMCP23017(ADDR_IC2); 
+    initMCP23017(ADDR_IC3);
+} 
+
+void initI2C (void){ 
+    int i2c_master_port = 0;
+    i2c_config_t i2c_config = {
+        .mode = I2C_MODE_MASTER,
+        .sda_io_num = SDA,
+        .sda_pullup_en = GPIO_PULLUP_ENABLE,
+        .scl_io_num = SCL,
+        .scl_pullup_en = GPIO_PULLUP_ENABLE,
+        .master.clk_speed = 100000,
+        .clk_flags = 0,
+    };    
+    i2c_param_config(I2C_NUM_0, &i2c_config);
+    i2c_driver_install(I2C_NUM_0, I2C_MODE_MASTER, 0, 0, 0); 
+}
+
+void initMCP23017(uint8_t address){
+    i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+    i2c_master_start(cmd);
+    i2c_master_write_byte(cmd, (address << 1) | I2C_MASTER_WRITE, true);
+    i2c_master_write_byte(cmd, 0x05, true);
+    i2c_master_write_byte(cmd, 0x00, true);
+    i2c_master_stop(cmd);
+    i2c_master_cmd_begin(I2C_NUM_0, cmd, 1000 / portTICK_PERIOD_MS);
+    i2c_cmd_link_delete(cmd);
 }

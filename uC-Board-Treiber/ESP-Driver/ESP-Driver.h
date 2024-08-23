@@ -37,7 +37,10 @@
 #include <esp_err.h>
 #include <esp_log.h> 
 #include <driver/gpio.h> 
+#include <driver/i2c.h>
 
 void initBoard(uint8_t startAnimation);
+void initI2C (void); 
+void initMCP23017(uint8_t address);
 
 #endif // ESP_DRIVER_H
