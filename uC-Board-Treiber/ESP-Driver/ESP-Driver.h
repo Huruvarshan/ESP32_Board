@@ -37,9 +37,6 @@
 #include <esp_err.h>
 #include <esp_log.h> 
 #include <driver/gpio.h> 
-#include <led_strip.h>
-//#include <mcp23x17.h> 
-
 
 void initBoard(uint8_t startAnimation);
 
