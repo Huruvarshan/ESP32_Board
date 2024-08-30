@@ -43,7 +43,9 @@ void initBoard(uint8_t startAnimation);
 void initI2C (void); 
 void mcp23017WriteRegister(uint8_t address, uint8_t register, uint8_t data);
 void mcp23017InitIC2(void);
+void mcp23017InitIC3(void); 
 void ledWriteAll(uint16_t bitMask); 
 uint8_t mcp23017ReadRegister(uint8_t address, uint8_t reg); 
+uint8_t swtichReadAll(); 
 
 #endif // ESP_DRIVER_H

@@ -17,7 +17,9 @@
     "files.associations": {
         "freertos.h": "c",
         "gpio.h": "c",
-        "cstdint": "c"
+        "cstdint": "c",
+        "i2c.h": "c",
+        "i2c_master.h": "c"
     },
     "idf.flashType": "JTAG"
 }

@@ -53,11 +53,15 @@
 #define GPIOA_MCP23017 0x12
 #define GPIOB_MCP23017 0x13
 
+// Function prototypes
 void initI2C (void); 
 void mcp23017WriteRegister(uint8_t address, uint8_t register, uint8_t data);
 void mcp23017InitIC2(void);
+void mcp23017InitIC3(void); 
 void ledWriteAll(uint16_t bitMask); 
 uint8_t mcp23017ReadRegister(uint8_t address, uint8_t reg); 
+uint8_t swtichReadAll();
+
 
 void initBoard(uint8_t startAnimation){
     gpio_config_t io_conf = {}; // GPIO configuration
@@ -70,6 +74,7 @@ void initBoard(uint8_t startAnimation){
 
     initI2C(); // Initialize I2C
     mcp23017InitIC2(); // Initialize MCP23017
+    mcp23017InitIC3(); // Initialize MCP23017
 } 
 
 void initI2C (void){ 
@@ -104,6 +109,12 @@ void mcp23017InitIC2(void){
     mcp23017WriteRegister(ADDR_IC2, IODIRB_MCP23017, PORT_OUTPUT_MC23017);  // Set IODIRB to output
 } 
 
+void mcp23017InitIC3(void){
+    mcp23017WriteRegister(ADDR_IC3, IOCON_BANK_MCP23017, IOCON_BANK_RST_MCP23017); // Reset IOCON BANK on MCP23017
+    mcp23017WriteRegister(ADDR_IC3, IODIRA_MCP23017, PORT_INPUT_MC23017);  // Set IODIRA to input
+    mcp23017WriteRegister(ADDR_IC3, IODIRB_MCP23017, PORT_INPUT_MC23017);  // Set IODIRB to input
+}
+
 void ledWriteAll(uint16_t bitMask){
     mcp23017WriteRegister(ADDR_IC2, OLATA_MCP23017, bitMask & 0xff);
     mcp23017WriteRegister(ADDR_IC2, OLATB_MCP23017, bitMask >> 8);
@@ -126,6 +137,6 @@ uint8_t mcp23017ReadRegister(uint8_t address, uint8_t reg){
     return data; // Return the data
 }
 
-/*uint8_t swtichReadAll(){
-    Gwlll
-}*/
+uint8_t swtichReadAll(){ 
+    return mcp23017ReadRegister(ADDR_IC2, GPIOA_MCP23017); // Read the data from GPIOA and return it
+}
