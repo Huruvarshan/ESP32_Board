@@ -43,10 +43,11 @@
 
 void app_main(void)
 {
+    uint8_t testVar = 0; 
     //--------------------------------- LED Strip Configuration ---------------------------------
     led_strip_handle_t led_strip;
 
-    /* LED strip initialization with the GPIO and pixels number*/
+    /* LED strip initialization with the GPIO and pixels number
     led_strip_config_t strip_config = {
         .strip_gpio_num = OUTPUT_WS2812,            // The GPIO that connected to the LED strip's data line
         .max_leds = 2,                              // The number of LEDs in the strip,
@@ -64,14 +65,14 @@ void app_main(void)
         .flags.with_dma = false,                    // whether to enable the DMA feature
     #endif
     };
-    ESP_ERROR_CHECK(led_strip_new_rmt_device(&strip_config, &rmt_config, &led_strip)); 
+    ESP_ERROR_CHECK(led_strip_new_rmt_device(&strip_config, &rmt_config, &led_strip)); */
     
 
     //--------------------------------- initialize board ---------------------------------
     initBoard(0);
     
     while (1)
-    {
+    {/*
         if (gpio_get_level(INPUT_BTN0) | gpio_get_level(INPUT_BTN1) | gpio_get_level(INPUT_BTN2) | gpio_get_level(INPUT_BTN3))
         {
             led_strip_set_pixel(led_strip, 0, 1, 25, 1); 
@@ -83,8 +84,9 @@ void app_main(void)
             led_strip_set_pixel(led_strip, 1, 25, 1, 1); 
             led_strip_refresh(led_strip);
             ledWriteAll(swtichReadAll());
-        }
+        }*/
         
-        //vTaskDelay(pdMS_TO_TICKS(100));
+        testVar = swtichReadAll();
+        vTaskDelay(pdMS_TO_TICKS(100));
     }
 }

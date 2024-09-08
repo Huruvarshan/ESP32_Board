@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "uC-Board-Treiber",
-    "project_version":    "7771b79-dirty",
+    "project_version":    "7047853-dirty",
     "project_path":       "C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber",
     "idf_path":           "C:/Users/e1Suresh/Documents/v5.2.2/esp-idf",
     "build_dir":          "C:/Users/e1Suresh/Documents/GitHub/ESP32_Board/uC-Board-Treiber/build",
