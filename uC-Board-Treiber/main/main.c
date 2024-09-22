@@ -38,8 +38,6 @@
 #define INPUT_BTN2 36 
 #define INPUT_BTN3 37
 
-//#define GPIO_INPUT_SEL ((1ULL << INPUT_BTN0) | (1ULL << INPUT_BTN1) | (1ULL << INPUT_BTN2) | (1ULL << INPUT_BTN3)); 
-
 
 void app_main(void)
 {
@@ -77,14 +75,14 @@ void app_main(void)
             led_strip_set_pixel(led_strip, 0, 1, 25, 1); 
             led_strip_set_pixel(led_strip, 1, 1, 25, 1); 
             led_strip_refresh(led_strip);
-            ledWriteAll(0xffff); 
         } else {
             led_strip_set_pixel(led_strip, 0, 25, 1, 1); 
             led_strip_set_pixel(led_strip, 1, 25, 1, 1); 
             led_strip_refresh(led_strip);
-            ledWriteAll(swtichReadAll());
         }
         
+        ledWriteAll(swtichReadAll()<<8 | buttonReadAll());
+
         vTaskDelay(pdMS_TO_TICKS(100));
     }
 }

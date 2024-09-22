@@ -61,6 +61,7 @@ void mcp23017InitIC3(void);
 void ledWriteAll(uint16_t bitMask); 
 uint8_t mcp23017ReadRegister(uint8_t address, uint8_t reg); 
 uint8_t swtichReadAll();
+uint8_t buttonReadAll(); 
 
 
 void initBoard(uint8_t startAnimation){
@@ -139,4 +140,12 @@ uint8_t mcp23017ReadRegister(uint8_t address, uint8_t reg){
 
 uint8_t swtichReadAll(){ 
     return mcp23017ReadRegister(ADDR_IC3, GPIOA_MCP23017); // Read the data from GPIOA and return it
+}
+
+uint8_t buttonReadAll(){
+    uint8_t data = 0; // Initialize data variable 
+
+    data = gpio_get_level(INPUT_BTN0) | gpio_get_level(INPUT_BTN1) << 1 | gpio_get_level(INPUT_BTN2) << 2 | gpio_get_level(INPUT_BTN3) << 3; // Read the data from the buttons
+
+    return data; // Return the data
 }
