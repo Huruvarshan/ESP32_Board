@@ -138,5 +138,5 @@ uint8_t mcp23017ReadRegister(uint8_t address, uint8_t reg){
 }
 
 uint8_t swtichReadAll(){ 
-    return mcp23017ReadRegister(ADDR_IC2, GPIOA_MCP23017); // Read the data from GPIOA and return it
+    return mcp23017ReadRegister(ADDR_IC3, GPIOA_MCP23017); // Read the data from GPIOA and return it
 }
